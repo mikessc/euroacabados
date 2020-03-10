@@ -1,2 +1,0 @@
-# euroacabados
-Demo Euroacabados
