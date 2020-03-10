@@ -363,7 +363,9 @@ ul.about-list li span {
   margin: 0 auto;
   margin-top: 20px;
 }
-
+.section-title.center .line.linewhite {
+  border-top: 4px solid white;
+}
 .section-title.center hr {
   border-top: 4px solid rgba(252, 172, 69, 0.34);
   width: 40px;
@@ -371,6 +373,9 @@ ul.about-list li span {
   margin-top: 10px;
   position: relative;
   left: 17%;
+}
+.section-title.center .hrwhite {
+  border-top: 4px solid rgba(255, 255, 255, 0.34);
 }
 #team {
   margin: 0 auto;
@@ -437,6 +442,40 @@ img.img-circle.team-img {
 .owl-theme .owl-controls .owl-page.active span {
   background: #ff6106;
 }
+.owl-theme .owl-controls .owl-page span {
+  background: white;
+  opacity: 0.35;
+}
+.owl-theme.owl-white .owl-controls.clickable .owl-page:not(.active):hover span {
+  opacity: 0.35;
+  background: white;
+}
+.owl-theme.owl-white .owl-controls .owl-page.active span {
+  background: white;
+}
+.owl-theme .owl-buttons div,
+.owl-theme.owl-white .owl-buttons div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  background: none !important;
+  color: white;
+  opacity: 0.75;
+  font-size: 2em !important;
+  transition: opacity 350ms ease;
+}
+.owl-theme .owl-buttons div:hover,
+.owl-theme.owl-white .owl-buttons div:hover {
+  opacity: 1;
+}
+.owl-theme .owl-buttons .owl-next,
+.owl-theme.owl-white .owl-buttons .owl-next {
+  right: -40px;
+}
+.owl-theme .owl-buttons .owl-prev,
+.owl-theme.owl-white .owl-buttons .owl-prev {
+  left: -40px;
+}
 
 /* Services Section */
 #tf-services {
@@ -470,7 +509,7 @@ img.img-circle.team-img {
 
 /* Clients Section */
 #tf-clients {
-  background: url(../img/04.jpg);
+  background: #ff6106;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -539,6 +578,10 @@ img.img-circle.team-img {
   margin: 35px;
   color: #fff;
   text-align: center;
+}
+
+#clients .item img {
+  max-width: 120px;
 }
 /* Gallery Section
 ==============================*/
@@ -623,6 +666,7 @@ ol.type li a.active {
   width: 100%;
   opacity: 0;
   transition: all 0.5s;
+  z-index: 5;
 }
 .hover-bg .hover-text > h4 {
   opacity: 0;
@@ -650,6 +694,9 @@ ol.type li a.active {
 }
 .hover-bg:hover .hover-text {
   opacity: 1;
+}
+.hover-bg:hover .portfolioThumb {
+  max-width: 130%;
 }
 #tf-works i.fa {
   height: 30px;
@@ -834,4 +881,12 @@ nav#footer p {
   background: #ff6106;
   border-color: #ff6106;
   color: #ffffff;
+}
+.portfolioThumb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transition: max-width 500ms ease-out;
 }
