@@ -14,7 +14,7 @@ h1 strong {
 }
 h2 {
   text-transform: uppercase;
-  line-height: 20px;
+  line-height: 35px;
   margin: 0;
 }
 h3 {
@@ -285,12 +285,36 @@ ul.about-list li span {
 
 /* Team Section */
 #tf-team {
-  background: url(http://funimal.vikitheme.com/html/images/home/banner/banner5.jpg);
+  background: black;
+  transition: background 0.5s linear;
+    -moz-transition: background 0.5s linear; /* Firefox 4 */
+    -webkit-transition: background 0.5s linear; /* Safari and Chrome */
+    -o-transition: background 0.5s linear; /* Opera */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+#tf-team .fakeBG {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+#tf-team .fakeBG .fakeBGimage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+#tf-team .fakeBG .fakeBGimage:nth-child(4) {
+  display: block;
 }
 #tf-team .overlay {
   background: -moz-linear-gradient(
@@ -347,6 +371,7 @@ ul.about-list li span {
   height: auto;
   background-attachment: fixed;
   padding: 200px 0;
+  overflow: hidden;
 }
 .section-title.center {
   padding: 30px 0;
@@ -806,7 +831,8 @@ label {
   color: #555;
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
+  border: none;
+  border-bottom: 1px solid #ccc;
   border-radius: 2px;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -827,9 +853,16 @@ button.btn.tf-btn.btn-default {
   background: #ff6106;
   border: 0;
   border-radius: 0;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
   padding: 10px 40px;
   color: #ffffff;
   text-transform: uppercase;
+  transition: opacity 400ms ease-in-out;
+}
+
+button.btn.tf-btn.btn-default:hover {
+  opacity: 0.8;
 }
 
 .btn:active,
@@ -859,6 +892,9 @@ nav#footer {
 nav#footer .fnav {
   vertical-align: middle;
 }
+.fnav.pull-right {
+  margin-top: -25px;
+}
 ul.footer-social li {
   display: inline-block;
   margin-right: 10px;
@@ -867,20 +903,25 @@ nav#footer p {
   font-size: 12px;
   margin-top: 10px;
 }
-#footer i.fa {
+#footer i.fa,
+#footer i.fab {
   height: 30px;
   width: 30px;
   border: 2px solid #8c8c8c;
   font-size: 20px;
-  padding: 4px 5px;
+  padding: 4px 4px;
   border-radius: 50%;
   color: #8c8c8c;
   transition: all 0.5s;
 }
+#footer i.fab:hover,
 #footer i.fa:hover {
   background: #ff6106;
   border-color: #ff6106;
   color: #ffffff;
+}
+#footer i.fa-facebook-f {
+  padding: 4px 7px;
 }
 .portfolioThumb {
   position: absolute;
@@ -889,4 +930,8 @@ nav#footer p {
   transform: translate(-50%, -50%);
   z-index: 1;
   transition: max-width 500ms ease-out;
+}
+
+.owl-carousel .owl-wrapper-outer {
+  min-height: 270px;
 }

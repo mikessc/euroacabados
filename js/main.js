@@ -1,15 +1,15 @@
 function main() {
-  (function() {
+  (function () {
     "use strict";
 
     /* ==============================================
   	Testimonial Slider
   	=============================================== */
 
-    $("a.page-scroll").click(function() {
+    $("a.page-scroll").click(function (e) {
       if (
         location.pathname.replace(/^\//, "") ==
-          this.pathname.replace(/^\//, "") &&
+        this.pathname.replace(/^\//, "") &&
         location.hostname == this.hostname
       ) {
         var target = $(this.hash);
@@ -24,10 +24,10 @@ function main() {
             900
           );
           $(".navbar-default").addClass("on");
-          $("#tf-home .overlay").fadeOut(1000, function() {
+          $("#tf-home .overlay").fadeOut(1000, function () {
             // Animation complete.
-            $("#tf-menu").fadeIn(1000);
-            $("#tf-home").slideUp(1000, function() {
+            $("#tf-menu").fadeIn(2000);
+            $("#tf-home").slideUp(2000, function () {
               if (first) {
                 $("body")
                   .stop()
@@ -45,35 +45,47 @@ function main() {
     Show Menu on Book
     ======================================*/
     var first = true;
-    $(window).bind("scroll", function() {
-      //var navHeight = $(window).height() - 100;
-      if ($(window).scrollTop() > 0) {
-        $(".navbar-default").addClass("on");
-        $("#tf-home .overlay").fadeOut(1000, function() {
-          // Animation complete.
-          $("#tf-menu").fadeIn(1000);
-          $("#tf-home").slideUp(1000, function() {
-            if (first) {
-              $("body")
-                .stop()
-                .animate({ scrollTop: 0 });
-              first = false;
-            }
-          });
-        });
-      } else {
-        $(".navbar-default").removeClass("on");
-      }
-    });
+    var images = $(".fakeBG .fakeBGimage");
+    var time = images.length * 8000;
+    var changeBG = function () {
+      setInterval(function () {
+        console.log(" seconds");
+      }, 1000);
+      images.each(function (index) {
+        var i = (index + 1) * 8000;
+        var ind = index;
+        setTimeout(function () {
+          images.stop().fadeOut(1000);
+          images.eq(ind).fadeIn(1000);
+        }, i);
+        if (index == images.length - 1) {
+
+        }
+      });
+    }
+
+    var setLoop = function () {
+      setInterval(function () {
+        changeBG();
+      }, time);
+    };
+
 
     $("body").scrollspy({
       target: ".navbar-default",
       offset: 80
     });
 
-    $(document).ready(function() {
-      $("#mycontactform-submit").click(function() {
-        $.post("send.php", $("#mycontactform").serialize(), function(response) {
+    $(document).ready(function () {
+      $("#splashScroll").click(function (e) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        $(this).attr("disabled", "disabled");
+        changeBG();
+        setLoop();
+      });
+      $("#mycontactform-submit").click(function () {
+        $.post("send.php", $("#mycontactform").serialize(), function (response) {
           $("#success").show("fast");
           if (response.indexOf("Invalid") >= 0) {
             $("#success").addClass("invalid");
@@ -81,7 +93,7 @@ function main() {
             $("#success").removeClass("invalid");
           }
           $("#success").html(response);
-          setTimeout(function() {
+          setTimeout(function () {
             $("#success").hide("slow");
           }, 3000);
         });
@@ -106,7 +118,7 @@ function main() {
       });
 
       $("#clients").owlCarousel({
-        navigation: true, // Show next and prev buttons
+        navigation: false, // Show next and prev buttons
         navigationText: [
           '<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>',
           '<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>'
@@ -127,7 +139,7 @@ function main() {
       });
 
       $("#testimonial").owlCarousel({
-        navigation: true, // Show next and prev buttons
+        navigation: false, // Show next and prev buttons
         navigationText: [
           '<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>',
           '<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>'
@@ -141,7 +153,7 @@ function main() {
     /*====================================
     Portfolio Isotope Filter
     ======================================*/
-    $(window).load(function() {
+    $(window).load(function () {
       var $container = $("#lightbox");
       $container.isotope({
         filter: "*",
@@ -151,7 +163,7 @@ function main() {
           queue: false
         }
       });
-      $(".cat a").click(function() {
+      $(".cat a").click(function () {
         $(".cat .active").removeClass("active");
         $(this).addClass("active");
         var selector = $(this).attr("data-filter");
