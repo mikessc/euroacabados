@@ -540,6 +540,7 @@ img.img-circle.team-img {
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: #ffffff;
+  padding-bottom: 25px;
 }
 
 #tf-clients .overlay {
@@ -932,6 +933,10 @@ nav#footer p {
   transition: max-width 500ms ease-out;
 }
 
-.owl-carousel .owl-wrapper-outer {
+#tf-team .owl-carousel .owl-wrapper-outer {
   min-height: 270px;
+}
+
+#tf-clients .owl-carousel .owl-wrapper-outer {
+  min-height: 130px;
 }
