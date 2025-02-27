@@ -4,6 +4,8 @@ html {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   color: #5a5a5a;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 h1 {
