@@ -252,7 +252,7 @@ ol {
 }
 
 a.fa.fa-angle-down {
-  padding: 10px 15px;
+  padding: 20px;
   color: #fff;
   border: 2px solid #b4b4b4;
   border-radius: 50%;
@@ -939,4 +939,10 @@ nav#footer p {
 
 #tf-clients .owl-carousel .owl-wrapper-outer {
   min-height: 130px;
+}
+.page-scroll.fa.fa-angle-down:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
